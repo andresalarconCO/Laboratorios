@@ -12,7 +12,7 @@ CREATE SEQUENCE course_id_seq
 CREATE TABLE student(
 	student_id INTEGER DEFAULT nextval('student_id_seq'),
   	name VARCHAR NOT NULL,
-  	program INTEGER,
+  	program VARCHAR NOT NULL,
   	PRIMARY KEY(student_id)
 );
 
