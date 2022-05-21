@@ -29,7 +29,7 @@ CREATE TABLE instructor(
 CREATE TABLE course(
 	course_id INTEGER DEFAULT nextval('course_id_seq'),
   	title VARCHAR NOT NULL,
-  	sylabus VARCHAR,
+  	syllabus VARCHAR,
   	credits SMALLINT,
   	PRIMARY KEY(course_id)
 );
