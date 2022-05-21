@@ -18,7 +18,7 @@ CREATE TABLE student(
 
 --- Instructor (instructor_id, name, dept, title) ---
 CREATE TABLE instructor(
-	instructor_id INTEGER,
+	instructor_id SERIAL,
   	name VARCHAR NOT NULL,
   	dept VARCHAR,
   	title VARCHAR,
