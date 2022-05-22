@@ -1,6 +1,7 @@
 
 drop table requires;
 drop table teaches;
+drop VIEW better_students;
 drop table enrols;
 drop table course_offering;
 drop table course;
