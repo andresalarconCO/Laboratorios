@@ -51,20 +51,19 @@ when (New.grade = Old.grade) EXECUTE FUNCTION nota_igual();
 --Añade teaches ingresando solo el instructor_id y el course_id teninendo en cuenta que ambo estan en la baserequires
 -- de datos
 
-CREATE or replace FUNCTION create_teaches(integer,integer) RETURNS void AS
-$BODY$
+CREATE or replace PROCEDURE create_teaches(instructor integer,course integer) as 
+$naren$
 declare
-instructor  alias for $1;
-course alias for $2;
 anio integer;
 semestre integer;
 sec integer;
 BEGIN
- anio = (select year from course_offering co where course = co.course_id);
- semestre = (select semester from course_offering co where course = co.course_id);
- sec = (SELECT sec_id from course_offering co where course = co.course_id);
+ select year into anio from course_offering co where course = co.course_id;
+ select semester into semestre from course_offering co where course = co.course_id;
+ SELECT sec_id into sec from course_offering co where course = co.course_id;
  
  insert into teaches (course_id,sec_id,semester,year,instructor_id) values
  (course,sec,semestre,anio,instructor);
+ COMMIT;
 END;
-$BODY$ LANGUAGE 'plpgsql';
+$naren$ LANGUAGE 'plpgsql';
