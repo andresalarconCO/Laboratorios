@@ -1,19 +1,25 @@
+create SEQUENCE subID INCREMENT 1 START 1;
+create SEQUENCE buildID INCREMENT 1 START 1;
+create SEQUENCE neighID INCREMENT 1 START 1;
+create SEQUENCE hoID INCREMENT 1 START 1;
+
+
 -- creacion de las tablas
 create table SubContrator (
-SID serial PRIMARY key,
+SID integer PRIMARY key DEFAULT nextval('subID'),
 S_Lname VARCHAR, 
 S_Fname VARCHAR,
 Salary integer
 );
 
 create table Builder (
-BID serial PRIMARY key, 
+BID integer PRIMARY key DEFAULT nextval('buildID'), 
 B_Lname VARCHAR, 
 B_Fname VARCHAR, 
 License varchar
 );
 create table Neighborhood  (
-NID serial PRIMARY key, 
+NID integer PRIMARY key default nextval('neighID'), 
 N_Name varchar, 
 City varchar
 );
@@ -26,7 +32,7 @@ FOREIGN key (BID) REFERENCES Builder(BID),
 FOREIGN key (SID) REFERENCES SubContrator(SID)
 );
 create table House (
-HID serial PRIMARY KEY,
+HID integer PRIMARY KEY DEFAULT nextval('hoID'),
 H_Name varchar, 
 FinishDate DATE, 
 Price integer, 
@@ -88,46 +94,45 @@ insert into neighborhood (n_name,city) values
   ('Los Patios','Caquetá');
   
   insert into hireinfo (bid,sid,hiredate) values
-(145,7,'2022-05-14'),
-(142,11,'2019-10-01'),
-(154,10,'2022-02-01'),
-(144,9,'2021-05-22'),
-(146,5,'2019-06-13'),
-(163,10,'2022-05-14'),
-(161,6,'2018-10-01'),
-(147,6,'2019-02-14'),
-(146,4,'2019-05-20'),
-(136,9,'2019-06-19'),
-(161,13,'2022-05-14'),
-(152,3,'2018-10-10'),
-(152,6,'2022-02-02'),
-(139,2,'2021-05-12'),
-(158,12,'2018-06-05'),
-(133,2,'2022-05-14'),
-(147,5,'2018-10-01'),
-(138,9,'2022-02-01'),
-(143,8,'2021-05-22'),
-(132,5,'2018-06-19');
+(5,7,'2022-05-14'),
+(12,11,'2019-10-01'),
+(4,10,'2022-02-01'),
+(14,9,'2021-05-22'),
+(11,5,'2019-06-13'),
+(13,10,'2022-05-14'),
+(1,6,'2018-10-01'),
+(7,6,'2019-02-14'),
+(6,4,'2019-05-20'),
+(3,9,'2019-06-19'),
+(6,13,'2022-05-14'),
+(5,3,'2018-10-10'),
+(6,6,'2022-02-02'),
+(9,2,'2021-05-12'),
+(8,12,'2018-06-05'),
+(15,2,'2022-05-14'),
+(7,5,'2018-10-01'),
+(9,9,'2022-02-01'),
+(14,8,'2021-05-22'),
+(12,5,'2018-06-19');
   
   insert into house (h_name,finishdate,price,bid,nid) values
-('Nova','2022-05-31',100000000,142,142),
-('Nova','2022-05-31',100000000,136,142),
-('Nova','2022-05-31',100000000,151,142),
-('Nova','2022-05-31',100000000,155,142),
-('Nova','2022-05-31',100000000,147,142),
-('El cañaduzal','2022-05-31',150000000,144,142),
-('El cañaduzal','2022-05-31',150000000,138,142),
-('El cañaduzal','2022-05-31',150000000,143,142),
-('El cañaduzal','2022-05-31',150000000,149,142),
-('El cañaduzal','2022-05-31',150000000,150,142),
-  ('Imelda','2022-05-04',864257485,144,136),
-('Claire','2021-05-11',367084635,154,145),
-('Hamish','2021-07-11',251953690,140,144),
-('Cecilia',null,600333411,162,150),
-('Candice',null,569336279,147,144),
-('Maggie',null,879057849,141,136),
-('Keane','2021-01-07',253140623,159,139),
-('Gabriel','2021-10-11',877257624,163,138),
-('Nash',null,913309196,152,140),
-('Halla',null,914307030,136,149);
-
+('Nova','2022-05-31',100000000,2,12),
+('Nova','2022-05-31',100000000,6,11),
+('Nova','2022-05-31',100000000,15,14),
+('Nova','2022-05-31',100000000,9,7),
+('Nova','2022-05-31',100000000,7,1),
+('El cañaduzal','2022-05-31',150000000,10,13),
+('El cañaduzal','2022-05-31',150000000,11,2),
+('El cañaduzal','2022-05-31',150000000,3,14),
+('El cañaduzal','2022-05-31',150000000,5,12),
+('El cañaduzal','2022-05-31',150000000,11,5),
+ ('Imelda','2022-05-04',864257485,4,6),
+('Claire','2021-05-11',367084635,8,5),
+('Hamish','2021-07-11',251953690,14,1),
+('Cecilia',null,600333411,1,8),
+('Candice',null,569336279,7,6),
+('Maggie',null,879057849,14,6),
+('Keane','2021-01-07',253140623,9,9),
+('Gabriel','2021-10-11',877257624,3,8),
+('Nash',null,913309196,2,4),
+('Halla',null,914307030,6,9);
