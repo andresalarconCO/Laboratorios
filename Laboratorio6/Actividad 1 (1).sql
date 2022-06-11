@@ -43,8 +43,8 @@ FOREIGN key (NID) REFERENCES Neighborhood(NID)
 );
 
 insert into subcontrator (s_fname,s_lname,salary) values
-('Naren Andres','Medina Jaramillo',3050000),
-('Andres Felipe','Osorio Alarcon',3040000),
+('Naren Andres','Medina Jaramillo',4000000),
+('Andres Felipe','Osorio Alarcon',4050000),
 ('Juan David','Rios Riascos',3025000),
 ('Alejandro','Arenas Rodriguez',3025000),
 ('nombre1','Apellido ejemplo 1',3025000),
@@ -54,7 +54,7 @@ insert into subcontrator (s_fname,s_lname,salary) values
   ('Maris','Ortega',2780000),
   ('Evelyn','Reynolds',2520000),
   ('Beau','Franks',2540000),
-  ('Clinton','O''Neill',2360000),
+  ('Clinton','O''Neill',6360000),
   ('Castor','Vaughan',2690000),
   ('Colin','Lott',3459000),
   ('Cecilia','Grant',2832000),
@@ -117,7 +117,7 @@ insert into neighborhood (n_name,city) values
   
   insert into house (h_name,finishdate,price,bid,nid) values
 ('Nova','2022-05-31',100000000,2,12),
-('Nova','2022-05-31',100000000,6,11),
+('Las consultas','2022-05-31',100000000,6,11),
 ('Nova','2022-05-31',100000000,15,14),
 ('Nova','2022-05-31',100000000,9,7),
 ('Nova','2022-05-31',100000000,7,1),
